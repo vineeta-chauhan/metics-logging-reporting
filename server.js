@@ -8,6 +8,21 @@ const { getTimeStampOfBeforeNHour, isDateBefore } = require('./utils/dateUtils')
 
 const inMemoryCache = {};
 
+setInterval(() => {
+  const timeStampOfBeforeOneHour = getTimeStampOfBeforeNHour();
+  const memoryKeys = Object.keys(inMemoryCache);
+  memoryKeys.map((key) => {
+    
+    [...inMemoryCache[key]].map((ele, index) => {
+      if (!isDateBefore(timeStampOfBeforeOneHour, ele.timeStamp)) {
+        inMemoryCache[key].splice(index,1)
+      }
+      console.log(inMemoryCache,"inMemoryCache")
+    })
+  })
+ 
+}, 60 * 1000)
+
 
 const setMetricsHandler = (req, res) => {
   const { key } = req.params;

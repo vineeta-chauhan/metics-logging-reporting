@@ -1,7 +1,7 @@
 const moment = require('moment');
 
 const getTimeStampOfBeforeNHour = (numOfHours = 1) => {
-  return moment().subtract(numOfHours, "hours").valueOf();
+  return moment().subtract(numOfHours, "minutes").valueOf();
 }
 
 const isDateBefore = (date1, date2) => {
