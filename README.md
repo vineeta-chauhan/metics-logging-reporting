@@ -32,10 +32,8 @@ curl --location --request POST 'http://localhost:3000/metric/name' \
 
 ```
 curl --location --request GET 'http://localhost:3000/metric/name/sum' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "value":89
-}'
+--data-raw ''
+
 
 ```
 
